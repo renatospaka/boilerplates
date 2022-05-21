@@ -10,18 +10,13 @@ Enjoy it. Make suggestions if you like so.
   (8000:8000)
 
 ## 1st execution:
-- comment lines 18 to 20
-- execute -> docker exec -it app_any bash
-- from the container execute:
-  - go mod init your-project-name
-  ("your-project-name" is any name you like)
-  - go get github.com/satori/go.uuid
-  - go get github.com/spf13/cobra-cli
+- comment lines 21 to 32 in Dockerfile
+- remove go.mod e go.sum (if there are)
 
 ## next executions:
-- uncomment lines 18 to 20
+- uncomment lines 21 to 32 in Dockerfile
 - execute once -> docker-compose up --build
 (to rebuilt the container with uncommented lines)
 - start programing in Go
 
-# have fun using Go -> https://go.dev/solutions/#case-studies
+# go have fun using Go -> https://go.dev/solutions/#case-studies
