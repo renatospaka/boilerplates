@@ -1,17 +1,17 @@
-FROM node:15.9.0-alpine3.13
+FROM node:16.15.1-alpine3.16
 
-WORKDIR /app
+RUN apk add --no-cache bash && \
+    apk add tzdata && \
+    cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
-ENV PATH /app/node_modules/.bin:$PATH
-ENV CHOKIDAR_USEPOOLING=true
+WORKDIR /home/node/app
 
-# USER dude
+RUN npm install -g npm@8.13.2 && \
+    npm install react-scripts@5.0.1 -g  
+# RUN npx create-react-app my-app --template typescript --use-npm
+
+USER node
 COPY . ./
 
-RUN npx create-react-app my-app --template typescript  --silent
-
-RUN npm install --silent && \
-    npm install react-scripts@5.0.1 -g && \
-    npm audit fix --force
-
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD ["tail", "-f", "/dev/null"]

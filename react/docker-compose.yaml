@@ -5,8 +5,8 @@ services:
     build: .
     container_name: my_app
     volumes:
-      - .:/app/
+      - .:/home/node/app
     ports:
-      - 7000:7000
+      - 6000:3000
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
