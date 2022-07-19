@@ -6,12 +6,9 @@ RUN apk add --no-cache bash && \
 
 WORKDIR /home/node/app
 
-RUN npm install -g npm@8.13.2 && \
-    npm install react-scripts@5.0.1 -g  
-# RUN npx create-react-app my-app --template typescript --use-npm
-
 USER node
-COPY . ./
 
-# CMD ["npm", "start"]
-CMD ["tail", "-f", "/dev/null"]
+COPY . .
+
+# CMD ["tail", "-f", "/dev/null"]
+CMD ["sh", "-c", "npm install && tail -f /dev/null"]
