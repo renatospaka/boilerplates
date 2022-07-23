@@ -5,6 +5,8 @@ So, it is necessary to create a Docker environment to enable development.
 
 As of now, I have created boilerplates for:
   - Golang
+  - React
+  - Node.js
 
 Next ones:
   - Nest
